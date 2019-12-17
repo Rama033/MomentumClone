@@ -32,5 +32,11 @@ function handleSummit(event) {
 }
 
 function saveName(name) {
-    localStorage.setItem(name);
+    localStorage.setItem(USER_LS, name);
 }
+
+function init() {
+    loadName();
+}
+
+init();
