@@ -35,9 +35,14 @@ function addToToDoList(newToDo) {
     if (prevToDoList === null) {
         prevToDoList = "";
     }
-    const newToDoList = `${prevToDoList}<li>${newToDo}&nbsp&nbsp<input type="button" value="x" onClick="this.parentNode.parentNode.removeChild(this.parentNode)" /></li>`   
+    const newToDoList = `${prevToDoList}<li>${newToDo}&nbsp&nbsp<input type="button" value="x"  style="background-color:transparent;  border:0px transparent solid;" onClick="removeFromToDoList.apply(this.parentNode)" /></li>`   
     localStorage.setItem(TODO_LS, newToDoList);
     return newToDoList;
+}
+
+function removeFromToDoList(){
+    this.parentNode.removeChild(this);
+    localStorage.setItem(TODO_LS, toDoList.innerHTML);
 }
 
 function init() {

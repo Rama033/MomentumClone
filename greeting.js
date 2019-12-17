@@ -1,6 +1,6 @@
-const userNameForm = document.querySelector(".js-form");
-const userNameInput = userNameForm.querySelector("input");
-const greeting = document.querySelector(".js-greetings");
+const g_userNameForm = document.querySelector(".js-form");
+const g_userNameInput = g_userNameForm.querySelector("input");
+const g_greeting = document.querySelector(".js-greetings");
 
 const USER_LS = "currentUser", SHOWING_CN = "showing";
 
@@ -9,7 +9,7 @@ function loadName() {
     if (currentUser === null) {
         askForName();
     } else {
-        userNameForm.remove();
+        g_userNameForm.remove();
         paintGreeting(currentUser);
     }
 }
@@ -29,20 +29,20 @@ function paintGreeting(text) {
         greetingWord = "Good evening";
     }
 
-    userNameForm.classList.remove(SHOWING_CN);
-    greeting.classList.add(SHOWING_CN);
-    greeting.innerText = `${greetingWord}, ${text}`;
+    g_userNameForm.classList.remove(SHOWING_CN);
+    g_greeting.classList.add(SHOWING_CN);
+    g_greeting.innerText = `${greetingWord}, ${text}`;
 }
 
 function askForName() {
-    userNameForm.classList.add(SHOWING_CN);
-    userNameForm.addEventListener("submit", handleSummit);
+    g_userNameForm.classList.add(SHOWING_CN);
+    g_userNameForm.addEventListener("submit", handleSummit);
 }
 
 function handleSummit(event) {
     event.preventDefault();
-    const currentValue = userNameInput.value;
-    userNameForm.remove();
+    const currentValue = g_userNameInput.value;
+    g_userNameForm.remove();
     saveName(currentValue);
     paintGreeting(currentValue);
 }
