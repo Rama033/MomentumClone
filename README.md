@@ -1,1 +1,1 @@
-https://modneyweb.com/jsexercise1-5/
+https://modneyweb.com/jsexercise1/ 보고 공부 
